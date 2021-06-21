@@ -1,0 +1,211 @@
+.main-sidebar .sidebar-menu li a.has-dropdown:after{
+    font-family: 'Font Awesome 5 Pro';
+}
+
+nav#sidebar a[data-toggle="collapse"].active::after {
+    content: '\f107'!important;
+}
+.main-sidebar .sidebar-menu li ul.dropdown-menu li a {
+    padding-left: 40px;
+}
+
+.block {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.file-input-preview {
+    max-width: 100%;
+}
+
+/* Requests Block */
+.stats-3-block .stats-3 {
+    width: 50%;
+    position: relative;
+    padding-right: 50px;
+}
+
+.stats-3-block .stats-3::after {
+    content: '';
+    width: 1px;
+    height: 80%;
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: 30px;
+}
+
+.stats-3-block .stats-3:last-of-type {
+    padding-right: 0;
+}
+
+.stats-3-block .stats-3:last-of-type::after {
+    display: none;
+}
+
+.stats-3-block span,
+.stats-3-block strong {
+    color: inherit;
+}
+
+.stats-3-block strong {
+    font-size: 2rem;
+}
+
+.stats-3-block strong.strong-sm {
+    font-size: 1.4rem;
+}
+
+.stats-3-block span {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.stats-3-block span.span-sm {
+    font-size: 0.85rem;
+}
+
+.stats-3-block .progress {
+    margin-top: 10px;
+    background: #393c43;
+    max-width: 150px;
+}
+
+.stats-3-block .item {
+    width: 50%;
+}
+
+.stats-3-block .item .line {
+    display: block;
+    margin: 10px auto;
+    width: 30px;
+    height: 1px;
+    background: #40444b;
+}
+
+
+.stats-2-block .stats-2 {
+    width: 50%;
+    position: relative;
+    padding-right: 50px;
+}
+
+.stats-2-block .stats-2::after {
+    content: '';
+    width: 1px;
+    height: 80%;
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: 30px;
+}
+
+.stats-2-block .stats-2:last-of-type {
+    padding-right: 0;
+}
+
+.stats-2-block .stats-2:last-of-type::after {
+    display: none;
+}
+
+.stats-2-block span,
+.stats-2-block strong {
+    color: inherit;
+}
+
+.stats-2-block strong {
+    font-size: 2rem;
+}
+
+.stats-2-block span {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.stats-2-block .progress {
+    margin-top: 10px;
+    max-width: 150px;
+}
+
+.stats-2-block .stats-2-arrow {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    margin-right: 10px;
+}
+
+.stats-2-block .stats-2-arrow.low {
+    color: #dc3545;
+}
+
+.stats-2-block .stats-2-arrow.height {
+    color: #28a745;
+}
+
+/* Scans Block Media Query ------------------ */
+@media (max-width: 991px) {
+    .stats-2-block .stats-2::after {
+        display: none;
+    }
+
+    .stats-3-block .stats-3::after {
+        display: none;
+    }
+}
+
+#collapseSetting-preset {
+    right:-30px;
+    z-index: 5;
+}
+
+
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+    position: fixed;
+    margin: auto;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+/*Left*/
+.modal.left.fade .modal-dialog{
+    left: -320px;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.in .modal-dialog{
+    left: 0;
+}
+
+/*Right*/
+.modal.right.fade .modal-dialog {
+    right: 0;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+/*.modal.right.fade.in .modal-dialog {*/
+    /*right: 0;*/
+/*}*/
+.dropdown-list .dropdown-list-content:not(.is-end):after {
+    content: unset;
+}
+.badge.badge-warning {color:black;}
+.btn.btn-info {color:white!important;}

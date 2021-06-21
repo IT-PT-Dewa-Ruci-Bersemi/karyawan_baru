@@ -1,0 +1,114 @@
+body{
+    color: #141414;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
+    font-weight: 300;
+    letter-spacing: 0;
+}
+a {
+    color:#141414;
+}
+
+.devotion-title, .devotion-bible-verse h5 {
+    font-family: "Poppins", sans-serif;
+}
+.devotion-title {
+    margin:0 0 10px;
+}
+.devotion-subtitle {
+    margin-top:20px;
+    margin-bottom: 0;
+}
+.devotion-date {
+    margin-bottom: 25px;
+}
+.devotion-list-cover img{
+    max-width: 100%;
+}
+.devotion-list-content ul li {
+    white-space: inherit!important;
+}
+.section-sm {
+    padding:70px 0;
+}
+
+.lang-selector, .lang-selector a {
+    color: #0b0b0b!important;
+}
+.verse-content-holder {
+    background: #eaeaea;
+    padding:10px 30px;
+}
+.verse-version {
+    font-family: "Poppins", sans-serif;
+}
+
+
+#header {
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    /*background: #111111;*/
+
+    cursor: default;
+    height: 5rem;
+    left: 0;
+    line-height: 3.25rem;
+    top: 0;
+    width: 100%;
+    z-index: 10001;
+    padding: 0 1.25rem;
+}
+#header > .logo {
+    /*color: #ffffff;*/
+    color:#0b0b0b;
+    font-size: 1rem;
+    font-weight: 600;
+    height: inherit;
+    line-height: inherit;
+
+    text-decoration: none; }
+.logo img {
+    width:80px;
+}
+
+
+@media (min-width: 992px) {
+    .verse-caption-title {
+        cursor: pointer;
+    }
+
+    .verse-caption-title:hover {
+        font-weight: bold;
+    }
+
+    section time a span.title {
+        font-size:1.5vw;
+    }
+}
+@media (max-width: 992px) {
+    .verse-list-holder {
+        list-style: none;
+        padding:0;
+    }
+    .verse-caption-title {
+        border:1px solid gray;
+        border-radius: 5px;
+        padding:5px;
+    }
+    .verse-content-holder {
+        margin-top:7px;
+    }
+    .devotion-bible-verse {
+        margin-bottom: 25px;
+    }
+}

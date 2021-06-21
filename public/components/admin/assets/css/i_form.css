@@ -1,0 +1,33 @@
+.table>thead>tr>th {border-bottom: 2px solid #ddd;vertical-align: top;padding:8px 0;}
+.table>thead>tr>th>div {padding:0px 10px 0 0;}
+/*.table>tbody>tr>td {padding-left:0;}*/
+.row-menu {display: inline;padding:0px 5px;cursor: pointer;}
+.filter-menu-holder {padding-bottom: 15px!important;}
+.filter-menu>*{display: inline;margin:0 5px;cursor: pointer;font-size: 20px;}
+.filter-input {border-radius: 4px;}
+
+
+.modal-body .form-horizontal .col-sm-2,
+.modal-body .form-horizontal .col-sm-10 {
+    width: 100%
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+.modal-body .form-horizontal .control-label {
+    text-align: left;
+}
+.modal-body .form-horizontal .col-sm-offset-2 {
+    margin-left: 15px;
+}
+.alert {margin:5px 0;}
+
+@media (min-width: 768px) {
+    .modal-dialog {width: 630px;}
+}
