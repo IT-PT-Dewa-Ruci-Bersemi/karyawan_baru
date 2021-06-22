@@ -15,5 +15,5 @@ class SoalGrupController extends GenesisController {
     {
         return $this->init('soal.soal_grid');
     }
-    //cek1
+    //cek
 }
