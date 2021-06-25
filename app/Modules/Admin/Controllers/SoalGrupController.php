@@ -13,7 +13,7 @@ class SoalGrupController extends GenesisController {
     }
     public function index()
     {
-        return $this->init('soal.soal_grid');
+        return $this->init('soal.soal_grup_grid');
     }
     //cek
 }
