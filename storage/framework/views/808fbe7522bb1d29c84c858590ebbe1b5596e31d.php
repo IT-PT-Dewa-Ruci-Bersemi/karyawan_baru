@@ -5,16 +5,60 @@
             <!-- Form Name -->
             <legend><h2><b> <?php echo e($grup->grup); ?> </b></h2></legend><br>
             <?php $__currentLoopData = $soals; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $soal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col-md-4">
-                        <label class="col-md-6 control-label" ><?php echo e($soal->soal); ?></label>  
-                    </div>
-                    <div class="col-md-6">
-                        <input name="jawaban" placeholder="<?php echo e($soal->soal); ?>" class="form-control" type="text">
+            <?php switch($soal->type):
+                case ("input"): ?>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label class="col-md-6 control-label" ><?php echo e($soal->soal); ?></label>
+                        </div>
+                        <div class="col-md-6">
+                            <input name="jawaban" placeholder="<?php echo e($soal->soal); ?>" class="form-control" type="text">
+                        </div>
                     </div>
                 </div>
-            </div>
+                    <?php break; ?>
+                <?php case ("textarea"): ?>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label class="col-md-6 control-label" ><?php echo e($soal->soal); ?></label>
+                        </div>
+                        <div class="col-md-6">
+                            <textarea id="jawaban" name="jawaban" placeholder="<?php echo e($soal->soal); ?>" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                    <?php break; ?>
+                    <?php case ("select"): ?>
+                    <?php
+                        if ($soal->option=='') {
+                            goto skip;
+                        }
+                        $options=explode(';',$soal->option);
+                    ?>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label class="col-md-6 control-label" ><?php echo e($soal->soal); ?></label>
+                            </div>
+                            <div class="col-md-6">
+                                <select name="jawaban" class="form-control selectpicker">
+                                    <option value="">Please select</option>
+                                    <?php $__currentLoopData = $options; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $option): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($option); ?>"><?php echo e($option); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                        skip:
+                    ?>
+                        <?php break; ?>
+                <?php default: ?>
+                    
+            <?php endswitch; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             
 

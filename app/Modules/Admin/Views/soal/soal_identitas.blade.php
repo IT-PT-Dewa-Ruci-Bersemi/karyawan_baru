@@ -8,16 +8,60 @@
             <!-- Form Name -->
             <legend><h2><b> {{ $grup->grup }} </b></h2></legend><br>
             @foreach ($soals as $soal)
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col-md-4">
-                        <label class="col-md-6 control-label" >{{ $soal->soal }}</label>  
-                    </div>
-                    <div class="col-md-6">
-                        <input name="jawaban" placeholder="{{ $soal->soal }}" class="form-control" type="text">
+            @switch($soal->type)
+                @case("input")
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label class="col-md-6 control-label" >{{ $soal->soal }}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input name="jawaban" placeholder="{{ $soal->soal }}" class="form-control" type="text">
+                        </div>
                     </div>
                 </div>
-            </div>
+                    @break
+                @case("textarea")
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label class="col-md-6 control-label" >{{ $soal->soal }}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <textarea id="jawaban" name="jawaban" placeholder="{{ $soal->soal }}" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                    @break
+                    @case("select")
+                    @php
+                        if ($soal->option=='') {
+                            goto skip;
+                        }
+                        $options=explode(';',$soal->option);
+                    @endphp
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label class="col-md-6 control-label" >{{ $soal->soal }}</label>
+                            </div>
+                            <div class="col-md-6">
+                                <select name="jawaban" class="form-control selectpicker">
+                                    <option value="">Please select</option>
+                                    @foreach ($options as $option)
+                                        <option value="{{ $option }}">{{ $option }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    @php
+                        skip:
+                    @endphp
+                        @break
+                @default
+                    
+            @endswitch
             @endforeach
             
 
