@@ -5,6 +5,8 @@
                 {head:'Soal',width:4,data:'soal',align:'left',sort:true,type:'text'},
                 {head:'Grup',width:4,data:'grup_id',align:'left',sort:true,type:'relation',belongsTo:['soal_grup','grup']},
                 {head:'Detail',width:2,data:'detail',align:'center',sort:true,type:'text'},
+                {head:'Detail',width:2,data:'type',align:'center',sort:true,type:'text'},
+                {head:'Detail',width:2,data:'option',align:'center',sort:true,type:'text'},
                 {head:'Publish',width:1,data:'publish',align:'center',sort:true,type:'check'},
             ];
 
@@ -27,11 +29,39 @@
                     required:true,
                     placeholder:'Input Soal'
                 },{
-                    name:'detail',
-                    label:'Nama Route Detail',
-                    type:'text',
+                    name:'type',
+                    label:'Tipe Soal',
+                    type:'radio',
+                    toggle:true,
                     required:true,
-                    placeholder:'Input Nama Route Detail'
+                    option:[
+                        {value:"input",display:"Input"},
+                        {value:"textarea",display:"Textarea"},
+                        {value:"select",display:"Selection",toggle:"selection"},
+                        {value:"table",display:"Table",toggle:"table"}
+                    ]
+                },{
+                    name:'table',
+                    type:'panel',
+                    id:'table',
+                    field: [{
+                        name:'detail',
+                        label:'Nama Route Detail',
+                        type:'text',
+                        required:true,
+                        placeholder:'Input Nama Route Detail'
+                    }]
+                },{
+                    name:'selection',
+                    type:'panel',
+                    id:'selection',
+                    field: [{
+                        name:'option',
+                        label:'Opsi Pilihan',
+                        type:'text',
+                        required:true,
+                        placeholder:'Input Opsi Pilihan'
+                    }]
                 }],
                 edit:[{
                     name:'grup_id',
@@ -46,11 +76,39 @@
                     required:true,
                     placeholder:'Input Soal'
                 },{
-                    name:'detail',
-                    label:'Nama Route Detail',
-                    type:'text',
-                    required:false,
-                    placeholder:'Input Nama Route Detail'
+                    name:'type',
+                    label:'Tipe Soal',
+                    type:'radio',
+                    toggle:true,
+                    required:true,
+                    option:[
+                        {value:"input",display:"Input"},
+                        {value:"textarea",display:"Textarea"},
+                        {value:"select",display:"Selection",toggle:"selection"},
+                        {value:"table",display:"Table",toggle:"table"}
+                    ]
+                },{
+                    name:'table',
+                    type:'panel',
+                    id:'table',
+                    field: [{
+                        name:'detail',
+                        label:'Nama Route Detail',
+                        type:'text',
+                        required:true,
+                        placeholder:'Input Nama Route Detail'
+                    }]
+                },{
+                    name:'selection',
+                    type:'panel',
+                    id:'selection',
+                    field: [{
+                        name:'option',
+                        label:'Opsi Pilihan',
+                        type:'text',
+                        required:true,
+                        placeholder:'Input Opsi Pilihan'
+                    }]
                 }]
             };
 
@@ -70,4 +128,4 @@
     </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('admin::templates.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\karyawan_baru-1\app\Providers/../Modules/Admin/Views/soal/soal_grid.blade.php ENDPATH**/ ?>Admin/Views/soal/soal_grid.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin::templates.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\karyawan_baru-1\app\Providers/../Modules/Admin/Views/soal/soal_grid.blade.php ENDPATH**/ ?>
