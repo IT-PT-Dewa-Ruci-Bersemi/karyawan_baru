@@ -12,10 +12,26 @@ class SoalJawabanController extends GenesisController {
         $this->model    =  new SoalModel;
     }
 
-    public function index()
+    public function index($id)
     {
-        $this->data['soals'] = SoalModel::where('grup_id',2)->where('publish', 1)->get();
-        $this->data['grup'] = SoalGrupModel::where('publish', 1)->where('id',2)->first();
+        if ($id=null) {
+            $id = 2;
+        }
+        $this->data['soals'] = SoalModel::where('grup_id',$id)->where('publish', 1)->get();
+        $this->data['grup'] = SoalGrupModel::where('publish', 1)->where('id',$id)->first();
         return $this->render_view('soal.soal_identitas');
+    }
+
+    public function move(Request $request)
+    {
+        switch ($request->input('action')) {
+            case 'save':
+                $this->index($request->input('grup')-1);
+                break;
+            
+            case 'back':
+                $this->index($request->input('grup')+1);
+                break;
+        }
     }
 }

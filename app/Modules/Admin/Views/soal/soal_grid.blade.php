@@ -4,11 +4,11 @@
     <script type="text/javascript">
         $(function () {
             var header  = [
-                {head:'Soal',width:4,data:'soal',align:'left',sort:true,type:'text'},
-                {head:'Grup',width:4,data:'grup_id',align:'left',sort:true,type:'relation',belongsTo:['soal_grup','grup']},
-                {head:'Detail',width:2,data:'detail',align:'center',sort:true,type:'text'},
-                {head:'Detail',width:2,data:'type',align:'center',sort:true,type:'text'},
-                {head:'Detail',width:2,data:'option',align:'center',sort:true,type:'text'},
+                {head:'Soal',width:2,data:'soal',align:'left',sort:true,type:'text'},
+                {head:'Grup',width:2,data:'grup_id',align:'left',sort:true,type:'relation',belongsTo:['soal_grup','grup']},
+                {head:'Detail',width:1,data:'route',align:'center',sort:true,type:'text'},
+                {head:'Tipe',width:1,data:'type',align:'center',sort:true,type:'text'},
+                {head:'Opsi',width:1,data:'option',align:'center',sort:true,type:'text'},
                 {head:'Publish',width:1,data:'publish',align:'center',sort:true,type:'check'},
             ];
 

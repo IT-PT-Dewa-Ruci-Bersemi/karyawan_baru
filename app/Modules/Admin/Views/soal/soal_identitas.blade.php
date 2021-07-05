@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+    <form class="well form-horizontal" action="" method="post"  id="contact_form">
         <fieldset>
             <!-- Form Name -->
             <legend><h2><b> {{ $grup->grup }} </b></h2></legend><br>
@@ -13,6 +13,7 @@
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-4">
+                            <input type="hidden" name="id" value="{{$soal->id}}" >
                             <label class="col-md-6 control-label" >{{ $soal->soal }}</label>
                         </div>
                         <div class="col-md-6">
@@ -25,6 +26,7 @@
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-4">
+                            <input type="hidden" name="id" value="{{$soal->id}}" >
                             <label class="col-md-6 control-label" >{{ $soal->soal }}</label>
                         </div>
                         <div class="col-md-6">
@@ -43,6 +45,7 @@
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-4">
+                                <input type="hidden" name="id" value="{{$soal->id}}" >
                                 <label class="col-md-6 control-label" >{{ $soal->soal }}</label>
                             </div>
                             <div class="col-md-6">
@@ -64,21 +67,6 @@
             @endswitch
             @endforeach
             
-
-            <div class="form-group"> 
-                <label class="col-md-4 control-label">Department / Office</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="department" class="form-control selectpicker">
-                            <option value="">Select your Department/Office</option>
-                            <option>Department of Engineering</option>
-                            <option>Department of Agriculture</option>
-                            <option>Accounting Office</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
             
             <!-- Select Basic -->
             <!-- Success message -->
@@ -89,9 +77,16 @@
             <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
-                <div class="col-md-4"><br>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                <div class="row">
+                <div class="col-12 col-md-8">
+                    <button type="submit" name="action" class="btn btn-warning" value="back">Previous<span class="glyphicon glyphicon-send"></span></button>
                 </div>
+                <div class="col-6 col-md-4">
+                    <div class="float-right">
+                        <button type="submit" name="action" class="btn btn-success" value="save">Next<span class="glyphicon glyphicon-send"></span></button>
+                    </div>
+                </div>
+            </div>
             </div>
         </fieldset>
     </form>
