@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-    <form class="well form-horizontal" action="" method="post"  id="contact_form">
+    <form class="well form-horizontal" action="{{ route('move') }}" method="post"  id="contact_form">
         <fieldset>
             <!-- Form Name -->
             <legend><h2><b> {{ $grup->grup }} </b></h2></legend><br>
@@ -70,10 +70,10 @@
             
             <!-- Select Basic -->
             <!-- Success message -->
-            <div class="alert alert-success" role="alert" id="success_message">Success 
+            {{-- <div class="alert alert-success" role="alert" id="success_message">Success 
                 <i class="glyphicon glyphicon-thumbs-up">
                 </i> Success!.
-            </div>
+            </div> --}}
             <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>

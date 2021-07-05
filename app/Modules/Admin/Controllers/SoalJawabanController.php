@@ -3,6 +3,9 @@ namespace App\Modules\Admin\Controllers;
 
 use App\Modules\Admin\Models\SoalGrupModel;
 use App\Modules\Admin\Models\SoalModel;
+use Illuminate\Support\Facades\Auth;
+use App\Modules\Admin\Models\VwGrupSoalJawabanModel;
+use Illuminate\Support\Facades\Request;
 
 class SoalJawabanController extends GenesisController {
     public function __construct()
@@ -12,26 +15,24 @@ class SoalJawabanController extends GenesisController {
         $this->model    =  new SoalModel;
     }
 
-    public function index($id)
+    public function detail($id)
     {
-        if ($id=null) {
-            $id = 2;
-        }
         $this->data['soals'] = SoalModel::where('grup_id',$id)->where('publish', 1)->get();
         $this->data['grup'] = SoalGrupModel::where('publish', 1)->where('id',$id)->first();
         return $this->render_view('soal.soal_identitas');
     }
 
-    public function move(Request $request)
+    public function move()
     {
-        switch ($request->input('action')) {
-            case 'save':
-                $this->index($request->input('grup')-1);
-                break;
-            
-            case 'back':
-                $this->index($request->input('grup')+1);
-                break;
-        }
+        $request = Request::all();
+        dd($request->input('action'));
+        
+    }
+
+    public function index()
+    {
+        
+        $this->model = new VwGrupSoalJawabanModel();
+        return $this->init('soal.vw_grup_soal_jawaban');
     }
 }

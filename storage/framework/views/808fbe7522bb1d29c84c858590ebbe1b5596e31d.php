@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
-    <form class="well form-horizontal" action="" method="post"  id="contact_form">
+    <form class="well form-horizontal" action="<?php echo e(route('move')); ?>" method="post"  id="contact_form">
         <fieldset>
             <!-- Form Name -->
             <legend><h2><b> <?php echo e($grup->grup); ?> </b></h2></legend><br>
@@ -67,10 +67,7 @@
             
             <!-- Select Basic -->
             <!-- Success message -->
-            <div class="alert alert-success" role="alert" id="success_message">Success 
-                <i class="glyphicon glyphicon-thumbs-up">
-                </i> Success!.
-            </div>
+            
             <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
