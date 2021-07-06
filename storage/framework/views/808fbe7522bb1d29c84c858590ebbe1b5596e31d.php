@@ -2,7 +2,6 @@
 <div class="container">
     <form class="well form-horizontal" action="<?php echo e(route('move')); ?>" method="post" id="contact_form">
         <?php echo csrf_field(); ?>
-        <fieldset>
             <!-- Form Name -->
             <legend><h2><b> <?php echo e($grup->grup); ?> </b></h2></legend><br>
             <?php $__currentLoopData = $soals; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $soal): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -12,11 +11,11 @@
                     <div class="form-row">
                         <div class="col-md-4">
                             <input type="hidden" name="grup_id" value="<?php echo e($grup->id); ?>" >
-                            <input type="hidden" name="id" value="<?php echo e($soal->id); ?>" >
+                            <input type="hidden" name="id[]" value="<?php echo e($soal->id); ?>" >
                             <label class="col-md-6 control-label" ><?php echo e($soal->soal); ?></label>
                         </div>
                         <div class="col-md-6">
-                            <input name="jawaban" placeholder="<?php echo e($soal->soal); ?>" class="form-control" type="text">
+                            <input name="jawaban[]" placeholder="<?php echo e($soal->soal); ?>" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -26,11 +25,11 @@
                     <div class="form-row">
                         <div class="col-md-4">
                             <input type="hidden" name="grup_id" value="<?php echo e($grup->id); ?>" >
-                            <input type="hidden" name="id" value="<?php echo e($soal->id); ?>" >
+                            <input type="hidden" name="id[]" value="<?php echo e($soal->id); ?>" >
                             <label class="col-md-6 control-label" ><?php echo e($soal->soal); ?></label>
                         </div>
                         <div class="col-md-6">
-                            <textarea id="jawaban" name="jawaban" placeholder="<?php echo e($soal->soal); ?>" class="form-control">
+                            <textarea id="jawaban" name="jawaban[]" placeholder="<?php echo e($soal->soal); ?>" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -46,11 +45,11 @@
                         <div class="form-row">
                             <div class="col-md-4">
                                 <input type="hidden" name="grup_id" value="<?php echo e($grup->id); ?>" >
-                                <input type="hidden" name="id" value="<?php echo e($soal->id); ?>" >
+                                <input type="hidden" name="id[]" value="<?php echo e($soal->id); ?>" >
                                 <label class="col-md-6 control-label" ><?php echo e($soal->soal); ?></label>
                             </div>
                             <div class="col-md-6">
-                                <select name="jawaban" class="form-control selectpicker">
+                                <select name="jawaban[]" class="form-control selectpicker">
                                     <option value="">Please select</option>
                                     <?php $__currentLoopData = $options; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $option): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($option); ?>"><?php echo e($option); ?></option>
@@ -64,26 +63,20 @@
                     ?>
                         <?php break; ?>
                 <?php default: ?>
-                    
             <?php endswitch; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="row">
-                <div class="col-12 col-md-8">
-                    <button type="submit" name="action" class="btn btn-warning" value="back">Back<span class="glyphicon glyphicon-send"></span></button>
-                </div>
-                <div class="col-6 col-md-4">
-                    <div class="float-right">
-                        <button type="submit" name="action" class="btn btn-success" value="save">Next<span class="glyphicon glyphicon-send"></span></button>
-                    </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="row">
+            <div class="col-12 col-md-8">
+                <button type="submit" name="action" class="btn btn-warning" value="back">Back<span class="glyphicon glyphicon-send"></span></button>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="float-right">
+                    <button type="submit" name="action" class="btn btn-success" value="save">Next<span class="glyphicon glyphicon-send"></span></button>
                 </div>
             </div>
-
-
-            
-        </fieldset>
+        </div>
     </form>
 </div>
 <?php $__env->stopSection(); ?>
