@@ -3,7 +3,8 @@
 
 @section('content')
 <div class="container">
-    <form class="well form-horizontal" action="{{ route('move') }}" method="post"  id="contact_form">
+    <form class="well form-horizontal" action="{{ route('move') }}" method="post" id="contact_form">
+        @csrf
         <fieldset>
             <!-- Form Name -->
             <legend><h2><b> {{ $grup->grup }} </b></h2></legend><br>
@@ -13,6 +14,7 @@
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-4">
+                            <input type="hidden" name="grup_id" value="{{$grup->id}}" >
                             <input type="hidden" name="id" value="{{$soal->id}}" >
                             <label class="col-md-6 control-label" >{{ $soal->soal }}</label>
                         </div>
@@ -26,6 +28,7 @@
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-4">
+                            <input type="hidden" name="grup_id" value="{{$grup->id}}" >
                             <input type="hidden" name="id" value="{{$soal->id}}" >
                             <label class="col-md-6 control-label" >{{ $soal->soal }}</label>
                         </div>
@@ -45,6 +48,7 @@
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-4">
+                                <input type="hidden" name="grup_id" value="{{$grup->id}}" >
                                 <input type="hidden" name="id" value="{{$soal->id}}" >
                                 <label class="col-md-6 control-label" >{{ $soal->soal }}</label>
                             </div>
@@ -67,19 +71,11 @@
             @endswitch
             @endforeach
             
-            
-            <!-- Select Basic -->
-            <!-- Success message -->
-            {{-- <div class="alert alert-success" role="alert" id="success_message">Success 
-                <i class="glyphicon glyphicon-thumbs-up">
-                </i> Success!.
-            </div> --}}
-            <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="row">
                 <div class="col-12 col-md-8">
-                    <button type="submit" name="action" class="btn btn-warning" value="back">Previous<span class="glyphicon glyphicon-send"></span></button>
+                    <button type="submit" name="action" class="btn btn-warning" value="back">Back<span class="glyphicon glyphicon-send"></span></button>
                 </div>
                 <div class="col-6 col-md-4">
                     <div class="float-right">
@@ -87,7 +83,9 @@
                     </div>
                 </div>
             </div>
-            </div>
+
+
+            
         </fieldset>
     </form>
 </div>

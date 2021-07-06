@@ -25,7 +25,12 @@ class SoalJawabanController extends GenesisController {
     public function move()
     {
         $request = Request::all();
-        dd($request->input('action'));
+        if ($request['action']=='save') {
+            return $this->detail($request['grup_id']+1);
+        } else {
+            return $this->detail($request['grup_id']-1);
+        }
+        
         
     }
 

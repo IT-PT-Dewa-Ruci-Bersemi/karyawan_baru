@@ -1,6 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
-    <form class="well form-horizontal" action="<?php echo e(route('move')); ?>" method="post"  id="contact_form">
+    <form class="well form-horizontal" action="<?php echo e(route('move')); ?>" method="post" id="contact_form">
+        <?php echo csrf_field(); ?>
         <fieldset>
             <!-- Form Name -->
             <legend><h2><b> <?php echo e($grup->grup); ?> </b></h2></legend><br>
@@ -10,6 +11,7 @@
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-4">
+                            <input type="hidden" name="grup_id" value="<?php echo e($grup->id); ?>" >
                             <input type="hidden" name="id" value="<?php echo e($soal->id); ?>" >
                             <label class="col-md-6 control-label" ><?php echo e($soal->soal); ?></label>
                         </div>
@@ -23,6 +25,7 @@
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-4">
+                            <input type="hidden" name="grup_id" value="<?php echo e($grup->id); ?>" >
                             <input type="hidden" name="id" value="<?php echo e($soal->id); ?>" >
                             <label class="col-md-6 control-label" ><?php echo e($soal->soal); ?></label>
                         </div>
@@ -42,6 +45,7 @@
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-4">
+                                <input type="hidden" name="grup_id" value="<?php echo e($grup->id); ?>" >
                                 <input type="hidden" name="id" value="<?php echo e($soal->id); ?>" >
                                 <label class="col-md-6 control-label" ><?php echo e($soal->soal); ?></label>
                             </div>
@@ -64,16 +68,11 @@
             <?php endswitch; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             
-            
-            <!-- Select Basic -->
-            <!-- Success message -->
-            
-            <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="row">
                 <div class="col-12 col-md-8">
-                    <button type="submit" name="action" class="btn btn-warning" value="back">Previous<span class="glyphicon glyphicon-send"></span></button>
+                    <button type="submit" name="action" class="btn btn-warning" value="back">Back<span class="glyphicon glyphicon-send"></span></button>
                 </div>
                 <div class="col-6 col-md-4">
                     <div class="float-right">
@@ -81,7 +80,9 @@
                     </div>
                 </div>
             </div>
-            </div>
+
+
+            
         </fieldset>
     </form>
 </div>

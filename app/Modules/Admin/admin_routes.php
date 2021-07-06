@@ -35,11 +35,11 @@ $app = function () {
 
 
 
+        Route::any('/cek/move', 'SoalJawabanController@move')->name('move');
         Route::any('/soal', 'SoalController@index')->name('admin_list_soal');
         Route::any('/soal-grup', 'SoalGrupController@index')->name('admin_soal_grup');
         Route::any('/cek', 'SoalJawabanController@index')->name('cek');
         Route::any('/cek/{id}', 'SoalJawabanController@detail')->name('cekaja');
-        Route::any('/cek/move', 'SoalJawabanController@move')->name('move');
         
 
 
