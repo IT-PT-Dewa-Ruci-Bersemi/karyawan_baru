@@ -29,20 +29,23 @@ class SoalJawabanController extends GenesisController {
         $request = Request::all();
         $id = $request['id'];
         $jawaban = $request['jawaban'];
+        $user = Auth::guard('admin')->user()->id;
         for ($i=0; $i < count($id); $i++) { 
             $data = array(
+                'user_id' => $user,  
                 'soal_id' => $id[$i],
+            );
+            $jwb = array(
                 'jawaban' => $jawaban[$i],
             );
-            SoalJawabanModel::updateOrCreate($data);
+            SoalJawabanModel::updateOrCreate($data,$jwb);
         }
         
         if ($request['action']=='save') {
-            return $this->detail($request['grup_id']+1);
+            return redirect()->route('cekaja', ['id' => $request['grup_id']+1]);
         } else {
-            return $this->detail($request['grup_id']-1);
+            return redirect()->route('cekaja', ['id' => $request['grup_id']-s1]);
         }
-        
         
     }
 
