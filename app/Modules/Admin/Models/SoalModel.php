@@ -7,6 +7,12 @@ class SoalModel extends CoreGenesisModel {
 
     public function soal_grup()
     {
-        return $this->hasOne(SoalGrupModel::class,'id','grup_id');
+        return $this->belongsTo(SoalGrupModel::class,'grup_id','id');
     }
+
+    public function soal_jawaban()
+    {
+        return $this->hasMany(SoalJawabanModel::class,'id','soal_id');
+    }
+
 }

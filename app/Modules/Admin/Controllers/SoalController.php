@@ -14,6 +14,16 @@ class SoalController extends GenesisController {
     }
     public function index()
     {
+
+
+        // $hasil = [];
+        // $temp = ['nama','bapak','ibu'];
+        // $temp2 = ['andi','bambang','nur'];
+
+        // array_push($hasil,$temp);
+        // array_push($hasil,$temp2);
+        // dd(json_encode($hasil));
+        $col=5;
         $this->data['soal_grup']    = $this->_get_filter_select(SoalGrupModel::where('publish', 1), 'grup');
         return $this->init('soal.soal_grid');
     }

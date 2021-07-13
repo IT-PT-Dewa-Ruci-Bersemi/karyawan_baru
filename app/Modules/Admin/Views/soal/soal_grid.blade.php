@@ -50,7 +50,6 @@
                         name:'detail',
                         label:'Nama Route Detail',
                         type:'text',
-                        required:true,
                         placeholder:'Input Nama Route Detail'
                     }]
                 },{
@@ -61,7 +60,6 @@
                         name:'option',
                         label:'Opsi Pilihan',
                         type:'text',
-                        required:true,
                         placeholder:'Input Opsi Pilihan'
                     }]
                 }],
@@ -97,7 +95,6 @@
                         name:'detail',
                         label:'Nama Route Detail',
                         type:'text',
-                        required:true,
                         placeholder:'Input Nama Route Detail'
                     }]
                 },{
@@ -108,7 +105,6 @@
                         name:'option',
                         label:'Opsi Pilihan',
                         type:'text',
-                        required:true,
                         placeholder:'Input Opsi Pilihan'
                     }]
                 }]

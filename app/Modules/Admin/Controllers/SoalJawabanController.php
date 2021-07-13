@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Modules\Admin\Models\VwGrupSoalJawabanModel;
 use Illuminate\Support\Facades\Request;
 use App\Modules\Admin\Models\SoalJawabanModel;
+use App\Modules\Admin\Models\VwSoalJawabanModel;
 
 class SoalJawabanController extends GenesisController {
     public function __construct()
@@ -19,34 +20,38 @@ class SoalJawabanController extends GenesisController {
     public function detail($id)
     {
         
+        $user = Auth::guard('admin')->user()->id;
         $this->data['grup'] = SoalGrupModel::where('publish', 1)->where('id',$id)->first();
-        $this->data['soals'] = SoalModel::where('grup_id',$id)->where('publish', 1)->get();
+        $this->data['soals'] = VwSoalJawabanModel::where('grup_id',$id)->where('publish', 1)->where('user_id', $user)->get();
+        
         return $this->render_view('soal.soal_identitas');
     }
 
     public function move()
     {
         $request = Request::all();
-        $id = $request['id'];
-        $jawaban = $request['jawaban'];
-        $user = Auth::guard('admin')->user()->id;
-        for ($i=0; $i < count($id); $i++) { 
-            $data = array(
-                'user_id' => $user,  
-                'soal_id' => $id[$i],
-            );
-            $jwb = array(
-                'jawaban' => $jawaban[$i],
-            );
-            SoalJawabanModel::updateOrCreate($data,$jwb);
+        if (!empty($request['id'])) {
+            $id = $request['id'];
+            $jawaban = $request['jawaban'];
+            $user = Auth::guard('admin')->user()->id;
+            for ($i=0; $i < count($id); $i++) { 
+                $data = array(
+                    'user_id' => $user,  
+                    'soal_id' => $id[$i],
+                );
+                $jwb = array(
+                    'jawaban' => $jawaban[$i],
+                );
+                SoalJawabanModel::updateOrCreate($data,$jwb);
+            }
+            
         }
         
         if ($request['action']=='save') {
             return redirect()->route('cekaja', ['id' => $request['grup_id']+1]);
         } else {
-            return redirect()->route('cekaja', ['id' => $request['grup_id']-s1]);
+            return redirect()->route('cekaja', ['id' => $request['grup_id']-1]);
         }
-        
     }
 
     public function index()
